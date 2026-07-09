@@ -493,7 +493,7 @@ h1, h2, h3, p { margin: 0; }
   overflow: hidden;
   transition: grid-template-rows .25s ease;
 }
-.faq-item__answer > * {
+.faq-item__answer-inner {
   min-height: 0;
   overflow: hidden;
 }
