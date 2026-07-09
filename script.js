@@ -71,4 +71,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setActiveDot();
   });
+
+  document.querySelectorAll('.reviews-carousel').forEach((carousel) => {
+    const rail = carousel.querySelector('.reviews-carousel__rail');
+    const tracks = carousel.querySelectorAll('.reviews-carousel__track');
+    if (tracks.length < 2) return;
+
+    const speed = 32; // px per second
+    let offset = 0;
+    let distance = 0;
+    let paused = false;
+    let lastTimestamp = null;
+
+    const measure = () => {
+      distance = tracks[1].getBoundingClientRect().left - tracks[0].getBoundingClientRect().left;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    carousel.addEventListener('mouseenter', () => { paused = true; });
+    carousel.addEventListener('mouseleave', () => { paused = false; });
+
+    const step = (timestamp) => {
+      if (lastTimestamp === null) lastTimestamp = timestamp;
+      const delta = (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      if (!paused && distance > 0) {
+        offset = (offset + speed * delta) % distance;
+        rail.style.transform = `translateX(${-offset}px)`;
+      }
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
 });

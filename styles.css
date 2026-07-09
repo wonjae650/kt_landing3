@@ -319,17 +319,41 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- Testimonials ---------- */
 .testimonials { padding: 96px 0; }
+.reviews-carousel {
+  margin-top: 48px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+}
+.reviews-carousel__rail { display: flex; gap: 24px; width: max-content; will-change: transform; }
+.reviews-carousel__track { display: flex; gap: 24px; }
 .testimonial-card {
   margin: 0;
+  width: 340px;
+  flex: 0 0 340px;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-2xl);
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background: var(--bg-page);
 }
 .testimonial-card blockquote { margin: 0; font-size: 16px; line-height: 1.75; color: var(--text-primary); }
-.testimonial-card figcaption { font-size: 14px; color: var(--text-tertiary); }
+.testimonial-card__author { display: flex; align-items: center; gap: 12px; }
+.testimonial-card__avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-default);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-card__meta { font-size: 14px; color: var(--text-tertiary); }
 
 /* ---------- Schedule & Apply ---------- */
 .schedule { background: var(--bg-alt); padding: 88px 0; }
@@ -534,6 +558,7 @@ h1, h2, h3, p { margin: 0; }
   .results__header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .carousel__track .project-card { flex-basis: 100%; }
   .carousel__btn { display: none; }
+  .testimonial-card { width: 280px; flex-basis: 280px; }
   .track-grid { grid-template-columns: 1fr; }
   .mentor-profile__intro { flex-direction: column; align-items: flex-start; gap: 16px; }
   .history-item { flex-direction: column; gap: 4px; }
