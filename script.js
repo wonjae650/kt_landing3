@@ -25,4 +25,50 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  document.querySelectorAll('.carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel__track');
+    const cards = Array.from(track.children);
+    const prevBtn = carousel.querySelector('.carousel__btn--prev');
+    const nextBtn = carousel.querySelector('.carousel__btn--next');
+    const dotsWrap = carousel.querySelector('.carousel__dots');
+
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel__dot';
+      dot.setAttribute('aria-label', `${i + 1}번째 프로젝트로 이동`);
+      dot.addEventListener('click', () => cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start' }));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    const setActiveDot = () => {
+      const trackLeft = track.getBoundingClientRect().left;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      cards.forEach((card, i) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      });
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === closestIndex));
+    };
+
+    const scrollByCard = (direction) => {
+      const amount = cards[0].getBoundingClientRect().width + 24;
+      track.scrollBy({ left: amount * direction, behavior: 'smooth' });
+    };
+
+    prevBtn.addEventListener('click', () => scrollByCard(-1));
+    nextBtn.addEventListener('click', () => scrollByCard(1));
+    track.addEventListener('scroll', () => {
+      window.clearTimeout(track._scrollTimer);
+      track._scrollTimer = window.setTimeout(setActiveDot, 80);
+    });
+
+    setActiveDot();
+  });
 });

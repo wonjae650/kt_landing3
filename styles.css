@@ -175,7 +175,7 @@ h1, h2, h3, p { margin: 0; }
   overflow: hidden;
 }
 .stat-tile { background: var(--bg-page); padding: 24px 28px; }
-.stat-tile__number { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+.stat-tile__number { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
 .stat-tile__label { font-size: 13px; color: var(--text-tertiary); margin-top: 4px; }
 
 /* ---------- Results ---------- */
@@ -210,6 +210,53 @@ h1, h2, h3, p { margin: 0; }
 .project-card .mono-tag { color: var(--accent-tint); margin-bottom: 8px; }
 .project-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--text-inverse); }
 .project-card p { font-size: 14px; color: var(--text-inverse-secondary); line-height: 1.6; }
+
+.carousel { position: relative; margin-top: 48px; }
+.carousel__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__track .project-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+}
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.carousel__btn:hover { background: rgba(255, 255, 255, 0.08); }
+.carousel__btn--prev { left: -22px; }
+.carousel__btn--next { right: -22px; }
+.carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+}
+.carousel__dot.is-active { background: var(--text-inverse); }
 
 /* ---------- Curriculum ---------- */
 .curriculum { padding: 96px 0; }
@@ -485,6 +532,8 @@ h1, h2, h3, p { margin: 0; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .card-row--3, .curriculum__grid { grid-template-columns: 1fr; }
   .results__header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .carousel__track .project-card { flex-basis: 100%; }
+  .carousel__btn { display: none; }
   .track-grid { grid-template-columns: 1fr; }
   .mentor-profile__intro { flex-direction: column; align-items: flex-start; gap: 16px; }
   .history-item { flex-direction: column; gap: 4px; }
