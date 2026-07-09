@@ -105,4 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     requestAnimationFrame(step);
   });
+
+  document.querySelectorAll('.curr-row').forEach((row) => {
+    const num = row.querySelector('.curr-num');
+    const header = row.querySelector('.curr-header');
+
+    const toggle = () => {
+      const isOpen = row.classList.toggle('is-open');
+      header.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    num.addEventListener('click', toggle);
+    header.addEventListener('click', toggle);
+  });
 });
