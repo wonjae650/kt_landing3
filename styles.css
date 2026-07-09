@@ -1,6 +1,6 @@
 :root {
-  --accent: #4353E8;
-  --accent-tint: #9BA3F0;
+  --accent: #E5231B;
+  --accent-tint: #F5A3A4;
 
   --bg-page: #FAFAF8;
   --bg-dark: #17181C;
@@ -18,6 +18,8 @@
   --border-outline: #D8D7D1;
   --border-dark: #2E2F35;
 
+  --success: #1D9E75;
+
   --font-body: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
@@ -32,6 +34,7 @@
   --max-width: 1120px;
 }
 
+[data-accent="blue"]   { --accent: #4353E8; --accent-tint: #9BA3F0; }
 [data-accent="teal"]   { --accent: #0D9488; --accent-tint: #7FC9C1; }
 [data-accent="orange"] { --accent: #E85D3D; --accent-tint: #F3AC98; }
 [data-accent="purple"] { --accent: #7C3AED; --accent-tint: #C1A4F5; }
