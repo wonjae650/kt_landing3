@@ -274,13 +274,6 @@ h1, h2, h3, p { margin: 0; }
   gap: 16px;
   margin-bottom: 64px;
 }
-.curr-eyebrow {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: oklch(55% 0.13 260);
-}
 .curr-title {
   margin: 0;
   font-size: clamp(32px, 4.5vw, 48px);
@@ -327,7 +320,7 @@ h1, h2, h3, p { margin: 0; }
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 .curr-row.is-open .curr-num {
-  background: oklch(55% 0.13 260);
+  background: var(--accent);
   color: oklch(99% 0 0);
 }
 .curr-line {
@@ -359,15 +352,15 @@ h1, h2, h3, p { margin: 0; }
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .curr-row.is-open .curr-header {
-  background: oklch(96.5% 0.01 260);
-  border-color: oklch(88% 0.03 260);
+  background: #FDF2F1;
+  border-color: #F5C6C3;
 }
 .curr-header-text { display: flex; flex-direction: column; gap: 4px; }
 .curr-week {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: oklch(55% 0.13 260);
+  color: var(--accent);
 }
 .curr-stage-title {
   font-size: 20px;
