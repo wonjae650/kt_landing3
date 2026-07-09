@@ -128,7 +128,7 @@ h1, h2, h3, p { margin: 0; }
   border-bottom: 1px solid var(--border-default);
 }
 .nav__brand { display: flex; align-items: center; gap: 10px; }
-.nav__logo { width: 22px; height: 22px; background: var(--accent); border-radius: var(--radius-sm); }
+.nav__logo { height: 28px; width: auto; display: block; }
 .nav__wordmark { font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
 .nav__tagline { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); margin-left: 6px; }
 .nav__links { display: flex; align-items: center; gap: 28px; }
@@ -657,7 +657,7 @@ h1, h2, h3, p { margin: 0; }
   border-top: 1px solid var(--border-dark); padding-top: 32px;
 }
 .footer__brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 15px; }
-.footer__logo { width: 18px; height: 18px; background: var(--accent); border-radius: var(--radius-sm); }
+.footer__logo { height: 22px; width: auto; display: block; filter: brightness(0) invert(1); }
 .footer .mono-label { color: var(--text-inverse-tertiary); }
 
 /* ---------- Sticky CTA ---------- */
